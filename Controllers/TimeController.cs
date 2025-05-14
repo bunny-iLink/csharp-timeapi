@@ -57,6 +57,7 @@ namespace TimezoneApi.Controllers
                 list.Add(tz.Id);
             }
 
+            list.Sort();
             return Ok(list);
         }
     }
