@@ -12,5 +12,10 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 app.UseCors();
-app.MapControllers(); 
+app.MapControllers();
+
+// ✅ Bind to the PORT provided by Render
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
+
 app.Run();
